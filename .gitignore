@@ -1,0 +1,17 @@
+# vim swap files
+*.swp
+
+# object files
+*.o
+
+# the programm
+mapi
+
+# file.txt
+file.txt
+
+# todo
+todo
+
+# tga images
+*.tga
