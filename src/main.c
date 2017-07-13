@@ -23,16 +23,16 @@ int main( int argc, char *argv[] )
 		int charcount = 0;
 		int start, end;
 		int i;
-		FILE *f = fopen(LOGFILE, "w");
+		FILE *f = fopen(DEFAULT_LOGFILE, "w");
 		if (f != NULL)
 		{
 			fprintf(f, "Char mode:\n");
 		}
     
-		for(; charcount < MAX_CHARS; charcount++)
+		for(; charcount < DEFAULT_MAX_CHARS; charcount++)
 		{
 			start = end = clock();
-			while(CHARTIME > (end - start) / CLOCKS_PER_SEC)
+			while(DEFAULT_CHARTIME > (end - start) / CLOCKS_PER_SEC)
 			{
 				srand(time(NULL));
 				rand_char = rand() % 128;
@@ -68,30 +68,30 @@ int main( int argc, char *argv[] )
 		int max_val;
 		int max_index;
 		int pix_count = 0;
-		int pix_sum = TGA_DEFAULT_WIDTH * TGA_DEFAULT_HEIGHT;
+		int pix_sum = DEFAULT_TGA_WIDTH * DEFAULT_TGA_HEIGHT;
 		int start, end;
 		int i;
-		FILE *f = fopen(TGA_FILE, "w");
+		FILE *f = fopen(DEFAULT_TGA_FILE, "w");
 		if(f != NULL)
 		{
 			// write tga header to file
-			fprintf(f, "%c", TGA_ID);
-			fprintf(f, "%c", TGA_PALETTE);
-			fprintf(f, "%c", TGA_IMG_TYPE);
-			fprintf(f, "%c%c", TGA_PALETTE_START);
-			fprintf(f, "%c%c", TGA_PALETTE_END);
-			fprintf(f, "%c", TGA_PALETTE_SIZE);
-			fprintf(f, "%c%c", TGA_ORIGIN_X);
-			fprintf(f, "%c%c", TGA_ORIGIN_Y);
-			fprintf(f, "%c%c", TGA_DEFAULT_WIDTH);
-			fprintf(f, "%c%c", TGA_DEFAULT_HEIGHT);
-			fprintf(f, "%c", TGA_BITS_PER_PIXEL);
-			fprintf(f, "%c", TGA_ATTR);
+			fprintf(f, "%c", DEFAULT_TGA_ID);
+			fprintf(f, "%c", DEFAULT_TGA_PALETTE);
+			fprintf(f, "%c", DEFAULT_TGA_IMG_TYPE);
+			fprintf(f, "%c%c", DEFAULT_TGA_PALETTE_START);
+			fprintf(f, "%c%c", DEFAULT_TGA_PALETTE_END);
+			fprintf(f, "%c", DEFAULT_TGA_PALETTE_SIZE);
+			fprintf(f, "%c%c", DEFAULT_TGA_ORIGIN_X);
+			fprintf(f, "%c%c", DEFAULT_TGA_ORIGIN_Y);
+			fprintf(f, "%c%c", DEFAULT_TGA_WIDTH);
+			fprintf(f, "%c%c", DEFAULT_TGA_HEIGHT);
+			fprintf(f, "%c", DEFAULT_TGA_BITS_PER_PIXEL);
+			fprintf(f, "%c", DEFAULT_TGA_ATTR);
 		}
 		for(; pix_count < pix_sum; pix_count++)
 		{
 			start = end = clock();
-			while(CHARTIME > (end - start) / CLOCKS_PER_SEC)
+			while(DEFAULT_CHARTIME > (end - start) / CLOCKS_PER_SEC)
 			{
 				srand(time(NULL));
 				rand_color = rand() % (2 ^ 24);
@@ -132,16 +132,16 @@ int main( int argc, char *argv[] )
 		int boolcount = 0;
 		int start, end;
 		int i;
-		FILE* f = fopen(LOGFILE, "w");
+		FILE* f = fopen(DEFAULT_LOGFILE, "w");
 		if (f != NULL)
 		{
 		    fprintf(f, "Bool mode:\n");
 		}
 
-	        for(; boolcount < MAX_CHARS; boolcount++)
+	        for(; boolcount < DEFAULT_MAX_CHARS; boolcount++)
 		{
 			start = end = clock();
-			while(CHARTIME > (end - start) / CLOCKS_PER_SEC)
+			while(DEFAULT_CHARTIME > (end - start) / CLOCKS_PER_SEC)
 			{
 				srand(time(NULL));
 				rand_bool = (bool)(rand() % 2);
