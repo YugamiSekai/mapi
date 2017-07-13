@@ -7,5 +7,6 @@
 #include <stdbool.h>
 
 #include "defines.h"
+#include "functions.h"
 
 #endif
