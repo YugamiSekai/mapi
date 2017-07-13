@@ -1,10 +1,9 @@
 #ifndef	__DEFINES_H
 #define	__DEFINES_H
 
-#define		MAX_CHARS		10
-#define		ACCURACY		1000000
-#define 	CHARTIME		1
-#define		LOGFILE			"file.txt"
+#define		DEFAULT_MAX_CHARS			10
+#define 	DEFAULT_CHARTIME			1
+#define		DEFAULT_LOGFILE				"file.txt"
 
 
 /* tga header spec
@@ -30,20 +29,20 @@ XXXX	2		img height
 	6-7	00	-
 */
 
-#define		TGA_FILE		"image.tga"
+#define		DEFAULT_TGA_FILE		"image.tga"
 
 // tga header information
-#define		TGA_ID			0x00
-#define		TGA_PALETTE		0x00
-#define		TGA_IMG_TYPE		0x02
-#define		TGA_PALETTE_START	0x0000
-#define		TGA_PALETTE_END		0x0000
-#define		TGA_PALETTE_SIZE	0x00
-#define		TGA_ORIGIN_X		0x0000
-#define		TGA_ORIGIN_Y		0x0000
-#define		TGA_DEFAULT_WIDTH	0x0004
-#define		TGA_DEFAULT_HEIGHT	0x0004
-#define		TGA_BITS_PER_PIXEL	0x18
-#define		TGA_ATTR		0x20
+#define		DEFAULT_TGA_ID			0x00
+#define		DEFAULT_TGA_PALETTE		0x00
+#define		DEFAULT_TGA_IMG_TYPE		0x02
+#define		DEFAULT_TGA_PALETTE_START	0x0000
+#define		DEFAULT_TGA_PALETTE_END		0x0000
+#define		DEFAULT_TGA_PALETTE_SIZE	0x00
+#define		DEFAULT_TGA_ORIGIN_X		0x0000
+#define		DEFAULT_TGA_ORIGIN_Y		0x0000
+#define		DEFAULT_TGA_WIDTH		0x0004
+#define		DEFAULT_TGA_HEIGHT		0x0004
+#define		DEFAULT_TGA_BITS_PER_PIXEL	0x18
+#define		DEFAULT_TGA_ATTR		0x20
 
 #endif
