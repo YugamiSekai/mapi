@@ -8,5 +8,6 @@
 
 #include "defines.h"
 #include "functions.h"
+#include "settings.h"
 
 #endif
