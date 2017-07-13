@@ -1,13 +1,13 @@
 # definitions
 TARGET		:= $(shell basename $$(pwd))
 
-CC		:= gcc
+CC		:= g++
 CFLAGS		:=
 
 ODIR		:= build
 SDIR		:= src
 
-SOURCES		:= $(shell find src -name '*.c')
+SOURCES		:= $(shell find src -name '*.cpp')
 HEADERS		:= $(shell find src -name '*.h')
 
 LDFLAGS		:= 
@@ -16,7 +16,7 @@ DEL		:= rm -rfv
 ################################################################################
 # collection of files
 
-OBJS		:= $(patsubst src/%.c,build/%.o, $(SOURCES))
+OBJS		:= $(patsubst src/%.cpp,build/%.o, $(SOURCES))
 
 ################################################################################
 # end of definitions - start of rules
