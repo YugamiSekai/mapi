@@ -53,7 +53,7 @@ $(TARGET): $(OBJS)
 	@stat -c '%n	%s Bytes' $@
 	@echo ""
 
-build/%.o : src/%.c $(HEADERS)
+build/%.o : src/%.cpp $(HEADERS)
 	@echo "compiling $< ..."
 	$(CC) $(CFLAGS) -c -o $@ $<
 
