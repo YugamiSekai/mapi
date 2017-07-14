@@ -1,10 +1,7 @@
 #include	"allinc.h"
 
-//#define	DEBUG			true
 
-
-
-int main( int argc, char *argv[] )
+int main( int argc, char* argv[] )
 {
 	#ifdef DEBUG
 	int j;
@@ -14,8 +11,14 @@ int main( int argc, char *argv[] )
 		printf(argv[j]);
 	}
 	#endif
-	if(argc > 1 && *argv[1] == 'c')
+
+	Settings set;
+
+	if(set.getMODE() == 'c')
 	{
+		// we do this here to increase performance cause else getCHARTIME would be called a few thousand times a second
+		int chartime = set.getCHARTIME();
+
 		char rand_char;
 		int counts[128];
 		int max_val;
@@ -23,16 +26,20 @@ int main( int argc, char *argv[] )
 		int charcount = 0;
 		int start, end;
 		int i;
-		FILE *f = fopen(DEFAULT_LOGFILE, "w");
+
+		char file[256];
+		set.getLOGFILE(file);
+
+		FILE* f = fopen(file, "w");
 		if (f != NULL)
 		{
 			fprintf(f, "Char mode:\n");
 		}
     
-		for(; charcount < DEFAULT_MAX_CHARS; charcount++)
+		for(; charcount < set.getMAX_CHARS(); charcount++)
 		{
 			start = end = clock();
-			while(DEFAULT_CHARTIME > (end - start) / CLOCKS_PER_SEC)
+			while(chartime > (end - start) / CLOCKS_PER_SEC)
 			{
 				srand(time(NULL));
 				rand_char = rand() % 128;
@@ -60,18 +67,20 @@ int main( int argc, char *argv[] )
 		}
 		fclose(f);
 	}
-	else if(argc > 1 && *argv[1] == 'i')
+	else if(set.getMODE() == 'i')
 	{
-		//char rand_color_arr[3];
+		// we do this here to increase performance cause else getCHARTIME would be called a few thousand times a second
+		int chartime = set.getCHARTIME();
+
 		int rand_color;
 		int counts[2 ^ 24];
 		int max_val;
 		int max_index;
 		int pix_count = 0;
-		int pix_sum = DEFAULT_TGA_WIDTH * DEFAULT_TGA_HEIGHT;
+		int pix_sum = set.getTGA_WIDTH() * set.getTGA_HEIGHT();
 		int start, end;
 		int i;
-		FILE *f = fopen(DEFAULT_TGA_FILE, "w");
+		FILE* f = fopen(DEFAULT_TGA_FILE, "w");
 		if(f != NULL)
 		{
 			// write tga header to file
@@ -91,7 +100,7 @@ int main( int argc, char *argv[] )
 		for(; pix_count < pix_sum; pix_count++)
 		{
 			start = end = clock();
-			while(DEFAULT_CHARTIME > (end - start) / CLOCKS_PER_SEC)
+			while(chartime > (end - start) / CLOCKS_PER_SEC)
 			{
 				srand(time(NULL));
 				rand_color = rand() % (2 ^ 24);
@@ -127,21 +136,28 @@ int main( int argc, char *argv[] )
 	}
 	else
 	{
+		// we do this here to increase performance cause else getCHARTIME would be called a few thousand times a second
+		int chartime = set.getCHARTIME();
+
 		bool rand_bool;
 		int counts[2];
 		int boolcount = 0;
 		int start, end;
 		int i;
-		FILE* f = fopen(DEFAULT_LOGFILE, "w");
+
+		char file[256];
+		set.getLOGFILE(file);
+
+		FILE* f = fopen(file, "w");
 		if (f != NULL)
 		{
 		    fprintf(f, "Bool mode:\n");
 		}
 
-	        for(; boolcount < DEFAULT_MAX_CHARS; boolcount++)
+	        for(; boolcount < set.getMAX_CHARS(); boolcount++)
 		{
 			start = end = clock();
-			while(DEFAULT_CHARTIME > (end - start) / CLOCKS_PER_SEC)
+			while(chartime > (end - start) / CLOCKS_PER_SEC)
 			{
 				srand(time(NULL));
 				rand_bool = (bool)(rand() % 2);
