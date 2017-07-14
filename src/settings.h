@@ -3,11 +3,10 @@
 
 class Settings
 {
+	char MODE;
 	int MAX_CHARS;
 	float CHARTIME;
 	char LOGFILE[256];
-
-	char TGA_FILE[256];
 
 	int TGA_ID;
 	int TGA_PALETTE;
@@ -24,30 +23,24 @@ class Settings
 
 public:
 	Settings();
+	char getMODE();
+
 	bool setMAX_CHARS(int char_count);
 	int getMAX_CHARS();
 
 	bool setCHARTIME(float time);
 	float getCHARTIME();
 
-	bool setLOGFILE(char file[256]);
-	void getLOGFILE(char &ret);
+	bool setLOGFILE(char file[]);
+	void getLOGFILE(char* ret);
 
-	bool setTGA_FILE(char file[256]);
-	void getTGA_FILE(char &ret);
+	void getTGA_HEADER(char* header);
 
-	int getTGA_ID();
-	int getTGA_PALETTE();
-	int getTGA_IMG_TYPE();
-	int getTGA_PALETTE_START();
-	int getTGA_PALETTE_END();
-	int getTGA_PALETTE_SITE();
-	int getTGA_ORIGIN_X();
-	int getTGA_ORIGIN_Y();
+	bool setTGA_WIDTH(int width);
 	int getTGA_WIDTH();
+
+	bool setTGA_HEIGHT(int height);
 	int getTGA_HEIGHT();
-	int getTGA_BIST_PER_PIXEL();
-	int getTGA_ATTR();
 };
 
 #endif
