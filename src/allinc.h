@@ -11,4 +11,6 @@
 #include "functions.h"
 #include "settings.h"
 
+//#define	DEBUG	true
+
 #endif
